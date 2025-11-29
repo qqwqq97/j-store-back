@@ -23,6 +23,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function addresses() {
+        return $this->hasMany(Address::class);
+    }
+
     // /**
     //  * Get the attributes that should be cast.
     //  *
