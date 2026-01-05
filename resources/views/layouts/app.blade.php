@@ -12,7 +12,7 @@
     <nav>
       <a href="{{ route('admin.dashboard')}}">ホーム</a>
       <a href="{{ route('admin.shohin.list')}}">商品管理</a>
-      <a href="#">注文管理</a>
+      <a href="{{ route('admin.orders.index')}}">注文管理</a>
 
       <form style="display:inline" method="POST" action="{{ route('admin.logout')}}">
         @csrf

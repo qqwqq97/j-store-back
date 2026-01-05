@@ -86,7 +86,7 @@
           <div class="btn-area">
               <a href="{{ route('admin.shohin.detail', $product->id)}}" class="btn btn-back">詳細へ</a>
               <button type="submit" class="btn btn-edit">保存</button>
-              <button type="button" class="btn btn-edit" onclick="openModal()">削除</button>
+              <button type="button" class="btn btn-delete" onclick="openModal()">削除</button>
           </div>
       </form>
       </div>

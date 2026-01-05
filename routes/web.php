@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OrderController;
 
 require __DIR__ . '/api.php';
 // route순서에 주의 동적파라미터는 정적보다 밑에
@@ -22,5 +24,8 @@ Route::middleware('web')->prefix('admin')->name('admin.')->group(function () {
         Route::get('shohin/{id}/edit', [ProductController::class, 'edit'])->name('shohin.edit');
         Route::put('shohin/{id}', [ProductController::class, 'update'])->name('shohin.update');
         Route::delete('shohin/{id}', [ProductController::class, 'delete'])->name('shohin.delete');
+        Route::resource('users', UserController::class);
+        Route::post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
+        Route::resource('orders', OrderController::class);
     });
 });
