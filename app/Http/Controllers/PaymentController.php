@@ -37,6 +37,10 @@ class PaymentController extends Controller
 
             $order = Order::create([
                 'user_id' => $user->id,
+                'shipping_zip' => $request->input('address.shipping_zip'),
+                'shipping_address1' => $request->input('address.shipping_address1'),
+                'shipping_address2' => $request->input('address.shipping_address2'),
+                'shipping_phone' => $request->input('address.shipping_phone'),
                 'total_amount' => $request->amount,
                 'payment_intent_id' => $paymentIntent->id,
                 'status' => $status,
@@ -47,7 +51,7 @@ class PaymentController extends Controller
                     'order_id' => $order->id,
                     'product_id' => $item['product_id'],
                     'quantity' => $item['quantity'],
-                    'price' => $item['price']
+                    'price' => $item['price'],
                 ]);
             }
 

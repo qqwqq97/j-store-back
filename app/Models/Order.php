@@ -14,9 +14,14 @@ class Order extends Model
      */
     protected $fillable = [
       'user_id',
+      'shipping_zip',
+      'shipping_address1',
+      'shipping_address2',
+      'shipping_phone',
       'total_amount',
       'payment_intent_id',
-      'status'
+      'order_status',
+      'shipping_status'
     ];
 
     public function items()
