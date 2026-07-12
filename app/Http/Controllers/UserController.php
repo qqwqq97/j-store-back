@@ -19,6 +19,7 @@ class UserController extends Controller
             ->where('created_at', '>=', now()->subMonths(3))
             ->count();
 
+
         return response()->json([
             'message' => 'success',
             'newOrders' => $newOrders
