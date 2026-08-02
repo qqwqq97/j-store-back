@@ -49,4 +49,10 @@ class Product extends Model
 
     // asset()
     // 자동으로 http://localhost:8000/storage/products/xxx.avif로 변환됨
+
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }
