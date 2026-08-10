@@ -25,7 +25,7 @@ class CartController extends Controller
         ->update(['is_default' => 0]);
     }
   
-    Address::create([
+    $address = Address::create([
       'user_id' => $user->id,
       'postal_code' => $request['postal_code'],
       'prefecture' => $request['prefecture'],
@@ -37,7 +37,9 @@ class CartController extends Controller
     ]);
 
     return response()->json([
+      'status' => 'success',
       'message' => '住所を登録しました。',
+      'address' => $address
     ]);
   }
 
@@ -57,13 +59,8 @@ class CartController extends Controller
     if($addressDetail)
     {
       return response()->json([
-        'postal_code' => $addressDetail->postal_code,
-        'prefecture' => $addressDetail->prefecture,
-        'city' => $addressDetail->city,
-        'street' => $addressDetail->street,
-        'building' => $addressDetail->building,
-        'phone_number' => $addressDetail->phone_number,
-        'is_default' => $addressDetail->is_default
+        'status' => 'success',
+        'address' => $addressDetail
       ]);
     }
   }
